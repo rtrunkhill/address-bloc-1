@@ -1,0 +1,32 @@
+1.What's a RubyGem and why would you use one?
+    It's a package manager for Ruby.  At its core, it's a plug-n-play program that you can be added to your project as needed.  
+    Gems are designed to simplify tasks, you would use one when you have a complicated or often used task that could be streamlined via a gem.
+
+2.What's the difference between lazy and eager loading?
+    With Lazy loading, objects are not loaded until they are requested or needed.  
+    With eager loading, children objects are loaded when the parent object is loaded.
+
+3.What's the difference between the CREATE TABLE and INSERT INTO SQL statements?
+    CREATE TABLE initiates the table and defines the columnns.  INSERT INTO puts values into those tables.
+
+4.What's the difference between extend and include? When would you use one or the other?
+    _Include_ makes the method available to an instance of a class
+    _Extend_ makes the method avaialbe to the class itself.
+
+5.In persistence.rb, why do the save methods need to be instance (vs. class) methods?
+    So that it will only save to the particular instance it is refering too, not to the entire class itself.
+
+6.Given the Jar-Jar Binks example earlier, what is the final SQL query in persistence.rb's save! method?
+    UPDATE character
+	SET character_name = "Yoda", star_rating = "10"
+	WHERE id = 1;
+
+7.AddressBook's entries instance variable no longer returns anything. We'll fix this in a later checkpoint. What changes will we need to make?
+    We will need a way to relate ENTRY's to AddressBook
+    
+8. Write a Ruby method that converts snake_case to CamelCase using regular expressions
+    def camelcase(snake_case)
+      snake_case.split('_').collect(&:capitalize).join
+    end
+    
+9.Add a select method which takes an attribute and value and searches for all records that match:
