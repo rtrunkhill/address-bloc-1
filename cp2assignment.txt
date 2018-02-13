@@ -30,3 +30,9 @@
     end
     
 9.Add a select method which takes an attribute and value and searches for all records that match:
+    def find_by(attribute, value)
+        table = self
+        array  = () <<-SQL
+          SELECT #{attribute} FROM #{table}  WHERE #{attribute} = #{value};
+        SQL
+    end
