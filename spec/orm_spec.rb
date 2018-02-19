@@ -20,10 +20,13 @@ RSpec.describe Class do
     end
     
     it "calls method_missing correctly" do
-        expect{ @dummy_class.find_by_name(:peter_kirk) }.to raise_error(NameError)
+        @dummy_class.find_by_name(:peter_kirk)
+        #expect{ @dummy_class.find_by_name(:peter_kirk) }.to raise_error(NameError)
     end
 
-
+    # it 'tests for database queriers' do
+    #     expect{ @dummy_class.find_each(:name) }.to make_database_queries
+    # end
     
 
 #   describe "#to_s" do
