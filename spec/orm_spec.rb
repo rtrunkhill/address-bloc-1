@@ -11,22 +11,23 @@ RSpec.describe Class do
     end
           
         # describe "validation" do
-    it "raises argument errors" do
-        expect { @dummy_class.find_one("first") }.to raise_error(ArgumentError)
-    end
+    # it "raises argument errors" do
+    #     expect { @dummy_class.find_one("first") }.to raise_error(ArgumentError)
+    # end
     
-    it "raises argument errors" do
-        expect { @dummy_class.find("first", 1) }.to raise_error(ArgumentError)
-    end
-    
-    it "calls method_missing correctly" do
-        expect{ @dummy_class.find_by_name("peter kirk") }.to raise_error(ArgumentError)
-    end
+    # it "raises argument errors" do
+    #     expect { @dummy_class.find("first", 1) }.to raise_error(ArgumentError)
+    # end
     
     # it "calls method_missing correctly" do
-    #     @dummy_class.find_by_name("peter kirk")
-    #     #expect{ @dummy_class.find_by_name(:peter_kirk) }.to raise_error(NameError)
+    #     expect{ @dummy_class.find_by_name("peter kirk") }.to raise_error(ArgumentError)
     # end
+    
+    it "takes mulitple arguements for order" do
+        # @dummy_class.order(name: :asc, phone_number: :desc)
+        @dummy_class.order("name ASC")
+        #expect{ @dummy_class.find_by_name(:peter_kirk) }.to raise_error(NameError)
+    end
 
     # it 'tests for database queriers' do
     #     expect{ @dummy_class.find_each(:name) }.to make_database_queries
