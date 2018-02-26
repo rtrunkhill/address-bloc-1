@@ -1,4 +1,8 @@
-require 'bloc_record/selection.rb'
+# require 'bloc_record/selection.rb'
+require 'bloc_record/persistence.rb'
+require 'bloc_record'
+
+BlocRecord.connect_to("db/address_bloc.db")
 
 RSpec.describe Class do
 #     let(:dummy_class) { Class.new { extend Selection } }
@@ -7,28 +11,21 @@ RSpec.describe Class do
     
     before(:each) do
         @dummy_class = Class.new
-        @dummy_class.extend(Selection)
+        # @dummy_class.extend(Selection)
+       #  @dummy_class.extend(Persistence)
+        # @dummy_class.extend(ClassMethods)
     end
           
-        # describe "validation" do
-    # it "raises argument errors" do
-    #     expect { @dummy_class.find_one("first") }.to raise_error(ArgumentError)
-    # end
+    people = { 1 => { "first_name" => "David" }, 2 => { "first_name" => "Jeremy" } }
     
-    # it "raises argument errors" do
-    #     expect { @dummy_class.find("first", 1) }.to raise_error(ArgumentError)
-    # end
     
-    # it "calls method_missing correctly" do
-    #     expect{ @dummy_class.find_by_name("peter kirk") }.to raise_error(ArgumentError)
-    # end
-    
-    it "takes mulitple arguements for order" do
-        # @dummy_class.order(name: :asc, phone_number: :desc)
-        @dummy_class.order("name ASC")
-        #expect{ @dummy_class.find_by_name(:peter_kirk) }.to raise_error(NameError)
+    it "takes mulitple arguements for update" do
+        puts "is a hash" if people.is_a?(Hash)
+        # @dummy_class.update(people.keys, people.values)
+        expect{ @dummy_class.find_by_name(:peter_kirk) }.to raise_error(NameError)
     end
 
+    
     # it 'tests for database queriers' do
     #     expect{ @dummy_class.find_each(:name) }.to make_database_queries
     # end
